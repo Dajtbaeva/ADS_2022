@@ -1,0 +1,30 @@
+void push_back +
+void push_front +
+void pop_back +
+void pop_front +
+node pop_back2
+node pop_front2
+void insert(val, i) +
+void update(val, i)
+node get_node(val) +
+node search(val)
+bool ishere(val)
+void reverse +
+node reverse2
+node middle
+bool ispalindrome 1, 2, 3
+bool isEmpty
+void sort
+node remove(pos)
+void remove2(val) +
+void remove3(pos) +
+void replace(pos1, pos2)
+void swap(pos1, pos2)
+node shift_left
+node shift_right
+void shift_left2 +
+void shift_right2 +
+void print +
+
+
+    

@@ -1,0 +1,9 @@
+git status -- для проверки
+git add .
+git commit -m"комментарий"
+git push --засунуть в гит
+
+---
+git pull -- собрать инфу с гита
+git log -- посмотреть коммиты
+git log -- pretty=format:"%ad %s [%an]" --graph --date=short

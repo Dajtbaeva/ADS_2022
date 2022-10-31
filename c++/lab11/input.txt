@@ -1,0 +1,11 @@
+10
+Nurzhan 30
+Gaziz 20
+Aldiyar 25
+Mikhail 10
+Ali 10
+Mikhail 5
+Nurzhan 5
+Temur 28
+Gaziz 2
+Aldiyar 5

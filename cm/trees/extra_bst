@@ -1,0 +1,17 @@
+void insert
+void inorder
+void preorder
+void postorder
+int rightmost
+int leftmost
+void ascorder
+void descorder
+void remove(val)
+int height
+int nodesOfSubtree
+int level
+int size
+vector sumiflevels
+int diameter
+int maxwidth
+node balanced_tree(vector, l, r) 

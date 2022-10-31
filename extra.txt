@@ -1,0 +1,94 @@
+1. Открыть и закрыть боковую панель — Ctrl + B
+2. Выбрать слово — Ctrl + D
+3. Разбить окно по вертикали — Shift + Alt + \ или 2,3,4
+4. Скопировать строку сверху или снизу — Shift + Alt + Up/Down
+5. Перейти на строку — Ctrl + L
+6. Удалить строку — Ctrl + Shift + K
+7. Переместить строку — Alt + Up/Down arrow
+8. Найти слово/фразу — Ctrl + F, Ctrl + Shift + F   
+9. Выбор нескольких курсоров — Alt + Клик левой кнопкой мыши
+10. Убираем пробелы вначале - shift + tab 
+11. Добавляем пробелы вначале - tabl
+-2147483647 - 1
+2147483647
+
+https://www.youtube.com/watch?v=NNvk6rTJuHc&ab_channel=HANOMEDIA
+https://e-maxx.ru/algo/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://leetcode.com/duramash/
+https://leetcode.com/owoyii/
+https://leetcode.com/alvanerle/
+https://github.com/DuramAsh/WEB-Project-Codemode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://github.com/wupsi/DB_2021_Fall
+https://github.com/YerkinBS/DB_2021
+https://github.com/Nura-21/DB-Autumn-2021
+https://github.com/wupsi/ADS_2021_Fall
+https://github.com/YerkinBS/ADS_2021
+https://github.com/Nura-21/ADS-Autumn-2021
+https://github.com/Bauyrzhan07/ADS
+https://github.com/snaprick/ADS2021
+https://github.com/gabdylgaziz
