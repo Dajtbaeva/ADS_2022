@@ -1,0 +1,9 @@
+8
+insert 1
+cnt 1
+insert 1
+cnt 1
+delete 1
+cnt 1
+delete 1
+cnt 1
