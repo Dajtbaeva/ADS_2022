@@ -46,10 +46,8 @@ int main() {
 		cin >> a[i];
 
 	vector<int> result = merge_sort(a, 0, n - 1);
-	for (auto i : result)
-		cout << i << " ";
-	cout << endl;
-	return 0;
+	for (auto i : result) cout << i << " ";
 }
 
+// log2(n)
 

@@ -50,12 +50,13 @@ struct MaxHeap {
 
 int main() {
 	MaxHeap heap;
-	int ar[10] = { 4, 3, 9, 12, 54, 20, 65, 76, -2, 56 };
-	int sortedAr[10];
-	for (int i = 0; i < 10; i++) {
-		heap.insert(ar[i]);
+	int n, x; cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> x;
+		heap.insert(x);
 	}
-	for (int i = 10 - 1; i >= 0; i--) {
+	int sortedAr[n];
+	for (int i = n - 1; i >= 0; i--) {
 		sortedAr[i] = heap.extractMax();
 	}
 	for (auto i : sortedAr) {
@@ -63,7 +64,7 @@ int main() {
 	}
 	return 0;
 }
-
+// n * log(n)
 
 // 7 4
 // insert 5
