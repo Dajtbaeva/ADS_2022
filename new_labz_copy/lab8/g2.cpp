@@ -3,7 +3,7 @@
 
 using namespace std;
 
-const int d = 31;
+const int d = 26;
 vector<ull> search(string s, string pattern, ull q = 1e9 + 7) {
 	ull p = 0, t = 0, h = 1, i, j;
 	vector<ull> ans;
@@ -33,16 +33,25 @@ vector<ull> search(string s, string pattern, ull q = 1e9 + 7) {
 	return ans;
 }
 
+string substrr(ull l, ull r, string s){
+    string temp = "";
+    for(int i = l - 1; i < r; i++){
+        temp += s[i];
+    }
+    return temp;
+}
+
 int main() {
-    freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
+    // freopen("input.txt", "r", stdin);
+	// freopen("output.txt", "w", stdout);
     string s;
     cin >> s;   
     ull n; cin >> n;
     for(ull i = 0; i < n; i++){
         ull l, r; cin >> l >> r;
-        string t = s.substr(l - 1, r - l + 1);
+        string t = substrr(l, r, s);
         vector<ull> res = search(s, t);
-        cout << res.size() << "\n";
+		if(!res.size()) cout << 1 << "\n";
+        else cout << res.size() << "\n";
     }
 }

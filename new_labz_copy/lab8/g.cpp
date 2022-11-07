@@ -66,6 +66,7 @@ int main() {
         int l, r; cin >> l >> r;
         string t = s.substr(l - 1, r - l + 1);
         vector<int> res = rabinKarp(s, t);
-        cout << res.size() << "\n";
+        if(res.size() == 0) cout << 1 << "\n";
+        else cout << res.size() << "\n";
     }
 }
