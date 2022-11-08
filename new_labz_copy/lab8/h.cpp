@@ -12,7 +12,7 @@ string lcs(string s, string t){
     int longest = 0;
     for(int i = 0; i < t.size(); i++){
         for(int j = s.size() - 1; j >= 0; j--){
-            if(s[j]==t[i]) m[j + 1] = m[j] + 1;
+            if(s[j] == t[i]) m[j + 1] = m[j] + 1;
             else m[j + 1] = 0;
             if(m[j + 1] > longest){
                 longest = m[j + 1];

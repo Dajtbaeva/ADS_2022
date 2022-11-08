@@ -1,72 +1,57 @@
-// abracadabra
-// 5
-// 1 1
-// 1 2
-// 3 4
-// 1 5
-// 1 4
-
 #include <bits/stdc++.h>
+#define ull unsigned long long
 
 using namespace std;
 
-long long MOD = 1e9 + 7;
-long long X = 31;
+const int d = 26;
+vector<ull> search(string s, string pattern, ull q = 1e9 + 7) {
+	ull p = 0, t = 0, h = 1, i, j;
+	vector<ull> ans;
+	for (i = 0; i < pattern.size() - 1; i++)
+		h = (h * d) % q;
 
-long long getHash(string s) {
-    long long hash = 0;
-    long long curX = 1;
-    for (int i = 0; i < s.size(); i++) {
-        long long curHash = (s[i] - 'a' + 1) * curX % MOD;
-        hash = (hash + curHash) % MOD;
-        curX = (curX * X) % MOD;
-    }
-    return hash;
+	for (i = 0; i < pattern.size(); i++) {
+		p = (d * p + pattern[i]) % q;
+		t = (d * t + s[i]) % q;
+	}
+
+	for (i = 0; i <= s.size() - pattern.size(); i++) {
+		if (p == t) {
+			for (j = 0; j < pattern.size(); j++) {
+				if (s[i + j] != pattern[j]) break;
+			}
+			if (j == pattern.size()) {
+				ans.push_back(i);
+			}
+		}
+
+		if (i < s.size() - pattern.size()) {
+			t = (d * (t - s[i] * h) + s[i + pattern.size()]) % q;
+			if (t < 0) t += q;
+		}
+	}
+	return ans;
 }
 
-vector<long long> getPrefixHashes(string s) {
-    vector<long long> hashes(s.size());
-    long long curX = 1;
-    for (int i = 0; i < s.size(); i++) {
-        hashes[i] = (s[i] - 'a' + 1) * curX % MOD;
-        if (i != 0) {
-            hashes[i] = (hashes[i] + hashes[i - 1]) % MOD;
-        }
-        curX = (curX * X) % MOD;
+string substrr(ull l, ull r, string s){
+    string temp = "";
+    for(int i = l - 1; i < r; i++){
+        temp += s[i];
     }
-    return hashes;
-}
-
-vector<int> rabinKarp(string s, string t) {
-    long long smallHash = getHash(t);
-    vector<int> res;
-    vector<long long> hashes = getPrefixHashes(s);
-    for (int i = 0; i < s.size() - t.size() + 1; i++) {
-        long long hashDif = hashes[i + t.size() - 1];
-        if (i != 0) hashDif -= hashes[i - 1];
-        if (hashDif < 0) hashDif += MOD;
-        if (i != 0) smallHash = (smallHash * X) % MOD;
-        if (smallHash == hashDif) {
-            res.push_back(i);
-        };
-    }
-    return res;
+    return temp;
 }
 
 int main() {
     // freopen("input.txt", "r", stdin);
 	// freopen("output.txt", "w", stdout);
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    cout.tie(0);
     string s;
-    cin >> s;
-    int n; cin >> n;
-    for(int i = 0; i < n; i++){
-        int l, r; cin >> l >> r;
-        string t = s.substr(l - 1, r - l + 1);
-        vector<int> res = rabinKarp(s, t);
-        if(res.size() == 0) cout << 1 << "\n";
+    cin >> s;   
+    ull n; cin >> n;
+    for(ull i = 0; i < n; i++){
+        ull l, r; cin >> l >> r;
+        string t = substrr(l, r, s);
+        vector<ull> res = search(s, t);
+		if(!res.size()) cout << 1 << "\n";
         else cout << res.size() << "\n";
     }
 }

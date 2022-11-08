@@ -5,15 +5,6 @@ using namespace std;
 ull MOD = 1e9 + 7;
 ull X = 11;
 
-// string to_string(ull h){
-//     string res = "";
-//     while(h > 0){
-//         res = char((h % 10) + 48) + res;
-//         h /= 10;
-//     }
-//     return res;
-// }
-
 ull getHash(string s) {
     ull hash = 0;
     ull curX = 1;
