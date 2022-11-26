@@ -1,0 +1,7 @@
+6 4
+print
+insert 9
+insert 6
+print
+insert 10
+print
