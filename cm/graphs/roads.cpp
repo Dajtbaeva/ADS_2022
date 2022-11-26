@@ -1,4 +1,5 @@
 // https://acmp.ru/asp/do/index.asp?main=task&id_course=2&id_section=21&id_topic=48&id_problem=625
+// просто сколько связей есть
 #include <bits/stdc++.h>
 using namespace std;
 

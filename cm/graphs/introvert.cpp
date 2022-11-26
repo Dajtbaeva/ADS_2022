@@ -1,3 +1,4 @@
+// найти минимальное количество нод в одном из компонентов
 #include <iostream>
 #include <vector>
 #include <queue>

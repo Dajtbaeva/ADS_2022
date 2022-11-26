@@ -1,25 +1,25 @@
+// 2021 MID4 E
 #include <bits/stdc++.h>
 using namespace std;
 vector<vector<int> > g;
-vector<int> topsort;
-vector<bool> visited;
+vector<bool> vis;
+set<int> deleted_nodes;
 
 void dfs(int v) {
-	visited[v] = true;
+	vis[v] = true;
 	for (int i = 0; i < g[v].size(); i++) {
 		int u = g[v][i];
-		if (!visited[u]) {
+		if (!vis[u] && deleted_nodes.find(u) == deleted_nodes.end()) {
 			dfs(u);
 		}
 	}
-	topsort.push_back(v);
 }
 
 int main() {
 	int m, n;
 	cin >> m >> n;
-	visited.resize(m);
 	g.resize(m);
+	vis.resize(m);
 	for (int i = 0; i < n; i++) {
 		int u, v;
 		cin >> u >> v;
@@ -28,13 +28,17 @@ int main() {
 		g[u].push_back(v);
 	}
 	for (int i = 0; i < m; i++) {
-		if (!visited[i]) {
-			dfs(i);
+		deleted_nodes.insert(i);
+		int comp = 0;
+		for (int j = i + 1; j < m; j++) {
+			if (!vis[j]) {
+				dfs(j);
+				comp++;
+			}
 		}
-	}
-	reverse(topsort.begin(), topsort.end());
-	for (auto i : topsort) {
-		cout << i + 1 << " ";
+		vis.clear();
+		vis.resize(m);
+		cout << comp << "\n";
 	}
 
 	return 0;

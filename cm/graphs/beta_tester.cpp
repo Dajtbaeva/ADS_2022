@@ -1,13 +1,11 @@
+// 2021 MID4 B
 #include <bits/stdc++.h>
 using namespace std;
 vector<vector<int> > g;
-vector<int> p;
-vector<int> colors; // 0 unvis, 1 red, 2 blue
-vector<int> top_sort;
-vector<bool> visited;
-int cycle_start, cycle_end;
+vector<bool> vis;
+vector<int> topsort_v, colors; // 0 unvis, 1 red, 2 blue
 
-bool dfs(int v) {
+bool detectCycle(int v) {
 	colors[v] = 1;
 	for (int i = 0; i < g[v].size(); i++) {
 		int u = g[v][i];
@@ -15,30 +13,30 @@ bool dfs(int v) {
 			return true;
 		}
 		if (colors[u] == 0) {
-			p[u] = v;
-			if (dfs(u)) return true;
+			if (detectCycle(u)) return true;
 		}
 	}
 	colors[v] = 2;
 	return false;
 }
 
-void dfs_sort(int v){
-    visited[v] = true;
-    for(int i = 0; i < g[v].size(); i++){
-        int u = g[v][i];
-        if(!visited[u]) dfs_sort(u);
-    }
-    top_sort.push_back(v);
+void topsort(int v) {
+	vis[v] = true;
+	for (int i = 0; i < g[v].size(); i++) {
+		int u = g[v][i];
+		if (!vis[u]) {
+			topsort(u);
+		}
+	}
+	topsort_v.push_back(v);
 }
 
 int main() {
 	int m, n;
 	cin >> m >> n;
 	colors.resize(m);
-    visited.resize(m);
 	g.resize(m);
-	p.resize(m);
+	vis.resize(m);
 	for (int i = 0; i < n; i++) {
 		int u, v;
 		cin >> u >> v;
@@ -46,16 +44,26 @@ int main() {
 		v--;
 		g[u].push_back(v);
 	}
-	cycle_start = -1;
+	bool hasCycle = false;
 	for (int i = 0; i < m; i++) {
-		if (dfs(i)) break;
+		if (detectCycle(i)) {
+			hasCycle = true;
+			break;
+		}
 	}
-	if (cycle_start == -1) {
-		reverse(top_sort.begin(), top_sort.end());
-        cout << "Possible\n";
-        for(auto i : top_sort) cout << i + 1 << " ";
+	if (!hasCycle) {
+		cout << "Possible\n";
+		for (int i = 0; i < m; i++) {
+			if (!vis[i]) {
+				topsort(i);
+			}
+		}
+		reverse(topsort_v.begin(), topsort_v.end());
+		for (auto i : topsort_v) {
+			cout << i + 1 << " ";
+		}
 	} else {
-        cout << "Impossible\n";
+		cout << "Impossible";
 	}
 
 	return 0;
