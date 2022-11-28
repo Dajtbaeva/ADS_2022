@@ -1,4 +1,4 @@
-// https://e-maxx.ru/algo/bfs
+// Aho-Corazick
 #include <bits/stdc++.h>
 using namespace std;
 int n, m;
