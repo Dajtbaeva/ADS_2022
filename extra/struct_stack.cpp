@@ -33,7 +33,7 @@ struct st{
             if(topindex == -1) return 0;
             else return topindex + 1;
         }
-}
+};
 
 int main(){
     st s;
